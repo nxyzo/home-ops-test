@@ -220,3 +220,4 @@ controlPlane:
 worker:
   patches:
     - "@./patches/worker/maschine-nodelabels.yaml"
+    - "@./patches/worker/machine-kubelet.yaml"
