@@ -210,10 +210,13 @@ patches:
   - "@./patches/global/machine-network.yaml"
   - "@./patches/global/machine-sysctls.yaml"
   - "@./patches/global/machine-time.yaml"
-  - "@./patches/global/maschine-nodelabels.yaml"
 
 # Controller patches
 controlPlane:
   patches:
     - "@./patches/controller/cluster.yaml"
 
+# Worker patches
+worker:
+  patches:
+    - "@./patches/worker/maschine-nodelabels.yaml"
