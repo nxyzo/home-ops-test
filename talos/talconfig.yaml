@@ -215,7 +215,7 @@ patches:
 controlPlane:
   patches:
     - "@./patches/controller/cluster.yaml"
-    - "@./patches/global/maschine-features.yaml"
+    - "@./patches/controller/maschine-features.yaml"
 
 # Worker patches
 worker:
