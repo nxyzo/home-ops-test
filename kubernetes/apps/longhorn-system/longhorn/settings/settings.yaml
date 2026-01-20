@@ -1,0 +1,13 @@
+---
+apiVersion: longhorn.io/v1beta2
+kind: Setting
+metadata:
+  name: recurring-job-selector
+  namespace: longhorn-system
+value: |
+  [
+    {
+      "name": "default",
+      "isGroup": true
+    }
+  ]
