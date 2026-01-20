@@ -30,10 +30,10 @@ spec:
       createDefaultDiskLabeledNodes: true
       defaultDataLocality: best-effort
       defaultLonghornStaticStorageClass: longhorn
-      defaultReplicaCount: "3"
-      guaranteedEngineManagerCPU: "20"
-      guaranteedReplicaManagerCPU: "20"
-      nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
+      defaultReplicaCount: "2"
+      guaranteedEngineManagerCPU: "5"
+      guaranteedReplicaManagerCPU: "5"
+      nodeDownPodDeletionPolicy: do-nothing
       orphanAutoDeletion: true
       replicaAutoBalance: best-effort
       storageMinimalAvailablePercentage: "5"
