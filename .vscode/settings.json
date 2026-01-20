@@ -13,6 +13,7 @@
     },
     "yaml.schemaStore.enable": true,
     "yaml.schemas": {
-        "kubernetes": "./kubernetes/**/*.yaml"
+        "kubernetes": "./kubernetes/**/*.yaml",
+        "https://www.schemastore.org/kustomization.json": "file:///home/philipp/home-ops-test/kubernetes/apps/system-upgrade/tuppr/app/kustomization.yaml"
     }
 }
