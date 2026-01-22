@@ -12,6 +12,8 @@ spec:
   values:
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
+      alertmanager:
+        enabled: true
       route:
         main:
           enabled: true
@@ -21,6 +23,7 @@ spec:
             - name: envoy-internal
               namespace: network
       alertmanagerSpec:
+        replicas: 3
         alertmanagerConfiguration:
           name: alertmanager
         externalUrl: https://alertmanager.home-ops.dev.nxyzo.com
