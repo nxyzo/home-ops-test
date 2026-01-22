@@ -30,6 +30,8 @@ spec:
         volumeClaimTemplate:
           spec:
             storageClassName: longhorn
+            accessModes:
+              - ReadWriteOnce
             resources:
               requests:
                 storage: 1Gi
