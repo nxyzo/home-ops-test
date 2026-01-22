@@ -13,28 +13,28 @@ spec:
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       enabled: true
-    route:
-      main:
-        enabled: true
-        hostnames:
-          - alertmanager.home-ops.dev.nxyzo.com
-        parentRefs:
-          - name: envoy-internal
-            namespace: network
-    alertmanagerSpec:
-      replicas: 3
-      alertmanagerConfiguration:
-        name: alertmanager
-      externalUrl: https://alertmanager.home-ops.dev.nxyzo.com
-      storage:
-        volumeClaimTemplate:
-          spec:
-            storageClassName: longhorn
-            accessModes:
-              - ReadWriteOnce
-            resources:
-              requests:
-                storage: 1Gi
+      route:
+        main:
+          enabled: true
+          hostnames:
+            - alertmanager.home-ops.dev.nxyzo.com
+          parentRefs:
+            - name: envoy-internal
+              namespace: network
+      alertmanagerSpec:
+        replicas: 3
+        alertmanagerConfiguration:
+          name: alertmanager
+        externalUrl: https://alertmanager.home-ops.dev.nxyzo.com
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: longhorn
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 1Gi
     kubeEtcd:
       service:
         selector:
