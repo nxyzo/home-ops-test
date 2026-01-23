@@ -40,3 +40,24 @@ spec:
   targetNamespace: longhorn-system
   timeout: 5m
   wait: false # no flux ks dependents
+---
+# yaml-language-server: $schema=https://lds-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: longhorn-dashboard
+  namespace: longhorn-system
+spec:
+  dependsOn:
+    - name: longhorn
+    - name: grafana
+  interval: 1h
+  path: ./kubernetes/apps/longhorn-system/longhorn/dashboard
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  targetNamespace: longhorn-system
+  timeout: 5m
+  wait: false # no flux ks dependents
