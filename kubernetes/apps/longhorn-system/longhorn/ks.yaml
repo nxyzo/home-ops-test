@@ -51,6 +51,7 @@ spec:
   dependsOn:
     - name: longhorn
     - name: grafana
+      namespace: observability
   interval: 1h
   path: ./kubernetes/apps/longhorn-system/longhorn/dashboard
   prune: true
