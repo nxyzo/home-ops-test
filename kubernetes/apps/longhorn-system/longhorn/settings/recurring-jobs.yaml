@@ -22,3 +22,4 @@ spec:
   groups:
     - default
   retain: 24
+  concurrency: 2
