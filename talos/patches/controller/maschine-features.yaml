@@ -4,6 +4,10 @@ machine:
       allowedKubernetesNamespaces:
         - system-upgrade
         - actions-runner-system
+        # etcd backup role needs access to kube-system for backup jobs e.g. https://github.com/alubbock/talos-etcd-backup
+        - kube-system
       allowedRoles:
         - os:admin
+        # etcd backup role needs access to kube-system for backup jobs e.g. https://github.com/alubbock/talos-etcd-backup
+        - os:etcd:backup
       enabled: true
