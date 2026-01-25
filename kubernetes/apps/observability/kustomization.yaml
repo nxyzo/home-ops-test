@@ -8,4 +8,4 @@ resources:
   - ./namespace.yaml
   - ./kube-prometheus-stack/ks.yaml
   - ./grafana/ks.yaml
-    - ./victoria-logs/ks.yaml
+  - ./victoria-logs/ks.yaml
