@@ -32,7 +32,17 @@ spec:
     gatewayAPI:
       enabled: false
     hubble:
-      enabled: false
+      enabled: true
+      metrics:
+        - dns
+        - dropped
+        - flows
+        - icmp
+        - l7
+        - tcp
+        - udp
+      ui:
+        enabled: true
     ipam:
       mode: kubernetes
     ipv4NativeRoutingCIDR: "10.42.0.0/16"
