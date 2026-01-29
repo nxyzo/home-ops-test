@@ -1,0 +1,12 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: longhorn-system
+
+resources:
+  - ./np-deny-all.yaml
+  - ./np-allow-egress-to-dns.yaml
+  - ./np-allow-ingress-from-prometheus.yaml
+  - ./np-allow-egress-to-k8s-api.yaml
+  - ./np-allow-egress-to-talos-api.yaml

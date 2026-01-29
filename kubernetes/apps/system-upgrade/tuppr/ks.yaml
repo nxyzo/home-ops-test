@@ -32,3 +32,21 @@ spec:
     namespace: flux-system
   targetNamespace: system-upgrade
   wait: false
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: tuppr-networkPolicys
+spec:
+  dependsOn:
+    - name: tuppr
+  interval: 1h
+  path: ./kubernetes/apps/system-upgrade/tuppr/networkPolicys
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  targetNamespace: system-upgrade
+  wait: false
