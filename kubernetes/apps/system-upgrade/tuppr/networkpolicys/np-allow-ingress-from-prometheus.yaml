@@ -17,4 +17,4 @@ spec:
               app.kubernetes.io/name: prometheus
       ports:
         - protocol: TCP
-          port: 8081
+          port: 8080
