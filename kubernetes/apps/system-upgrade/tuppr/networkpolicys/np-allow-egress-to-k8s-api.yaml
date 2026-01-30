@@ -5,17 +5,12 @@ metadata:
   name: allow-egress-to-k8s-api
   namespace: system-upgrade
 spec:
-  podSelector: {}
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: tuppr
   policyTypes:
     - Egress
   egress:
-    - from:
-      - namespaceSelector:
-          matchLabels:
-            kubernetes.io/metadata.name: system-upgrade
-      - podSelector:
-          matchLabels:
-            app.kubernetes.io/name: tuppr
     - to:
         - namespaceSelector:
             matchLabels:
