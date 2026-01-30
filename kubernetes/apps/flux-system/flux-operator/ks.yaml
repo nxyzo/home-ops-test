@@ -46,7 +46,8 @@ metadata:
   name: tuppr-networkpolicys
 spec:
   dependsOn:
-    - name: tuppr
+    - name: flux-operator
+      namespace: flux-system
   interval: 1h
   path: ./kubernetes/apps/flux-system/flux-operator/networkpolicys
   prune: true
