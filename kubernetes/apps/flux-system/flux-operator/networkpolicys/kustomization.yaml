@@ -5,4 +5,4 @@ kind: Kustomization
 namespace: flux-system
 
 resources:
-  - ./np-allow-ingress-from-prometheus.yaml
+  #- ./np-allow-ingress-from-prometheus.yaml
