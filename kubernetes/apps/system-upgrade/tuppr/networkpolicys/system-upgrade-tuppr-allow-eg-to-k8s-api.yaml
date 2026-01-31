@@ -21,3 +21,22 @@ spec:
       ports:
         - protocol: TCP
           port: 6443
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: system-upgrade-tuppr-allow-eg-to-k8s-api-from-host-network
+  namespace: system-upgrade
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: tuppr
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - ipBlock:
+            cidr: 192.168.50.0/24
+      ports:
+        - protocol: TCP
+          port: 6443
