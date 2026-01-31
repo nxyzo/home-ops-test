@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-egress-dns
+  name: system-upgrade-allow-eg-to-coredns
   namespace: system-upgrade
 spec:
   podSelector: {}

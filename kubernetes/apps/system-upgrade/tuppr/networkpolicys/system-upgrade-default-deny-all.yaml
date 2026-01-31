@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: default-deny-all
+  name: system-upgrade-default-deny-all
   namespace: system-upgrade
 spec:
   podSelector: {}
