@@ -5,8 +5,8 @@ kind: Kustomization
 namespace: system-upgrade
 
 resources:
-  - ./np-deny-all.yaml
-  - ./np-allow-egress-to-dns.yaml
-  - ./np-allow-ingress-from-prometheus.yaml
-  - ./np-allow-egress-to-k8s-api.yaml
-  - ./np-allow-egress-to-talos-api.yaml
+  - ./system-upgrade-default-deny-all.yaml
+  - ./system-upgrade-allow-eg-to-coredns.yaml
+  - ./system-upgrade-allow-ig-from-prometheus.yaml
+  - ./system-upgrade-tuppr-allow-eg-to-k8s-api.yaml
+  - ./system-upgrade-tuppr-allow-eg-to-talos-api.yaml
