@@ -5,4 +5,7 @@ kind: Kustomization
 namespace: flux-system
 
 resources:
-  #- ./np-allow-ingress-from-prometheus.yaml
+  # - ./flux-system-default-deny-all.yaml
+  # - ./flux-system-allow-ig-from-prometheus.yaml
+  # - ./flux-system-allow-eg-to-coredns.yaml
+  - source-controller
