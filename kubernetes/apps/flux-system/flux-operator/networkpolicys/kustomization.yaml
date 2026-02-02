@@ -5,8 +5,7 @@ kind: Kustomization
 namespace: flux-system
 
 resources:
-  # - ./flux-system-default-deny-all.yaml
-  # - ./flux-system-allow-ig-from-prometheus.yaml
+  - ./flux-system-default-deny-all.yaml
   - source-controller
   - kustomize-controller
   - flux-operator
