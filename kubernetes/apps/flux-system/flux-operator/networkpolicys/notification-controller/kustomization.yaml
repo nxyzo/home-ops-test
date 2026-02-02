@@ -8,6 +8,6 @@ resources:
   - ./flux-system-notification-controller-allow-eg-to-coredns.yaml
   - ./flux-system-notification-controller-allow-eg-to-k8s-api.yaml
   - ./flux-system-notification-controller-allow-ig-from-envoy.yaml
-  - ./flux-system-notification-controller-allow-ig-to-source-controller.yaml
+  - ./flux-system-notification-controller-allow-ig-from-source-controller.yaml
   - ./flux-system-notification-controller-allow-ig-from-host.yaml
   - ./flux-system-notification-controller-allow-ig-from-kustomize-controller.yaml
