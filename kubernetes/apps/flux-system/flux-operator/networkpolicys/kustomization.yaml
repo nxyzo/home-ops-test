@@ -10,3 +10,4 @@ resources:
   - source-controller
   - kustomize-controller
   - flux-operator
+  - helm-controller

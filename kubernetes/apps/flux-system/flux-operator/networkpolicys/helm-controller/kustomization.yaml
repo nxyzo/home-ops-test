@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: flux-system
+
+resources:
+  - ./flux-system-helm-controller-allow-eg-to-coredns.yaml
+  - ./flux-system-helm-controller-allow-eg-to-k8s-api.yaml
+  - ./flux-system-helm-controller-allow-eg-to-source-controller.yaml
+  - ./flux-system-helm-controller-allow-ig-from-host.yaml
