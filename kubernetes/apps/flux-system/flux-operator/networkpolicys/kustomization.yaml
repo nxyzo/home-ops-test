@@ -11,3 +11,4 @@ resources:
   - kustomize-controller
   - flux-operator
   - helm-controller
+  - notification-controller

@@ -1,0 +1,13 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: flux-system
+
+resources:
+  - ./flux-system-notification-controller-allow-eg-to-coredns.yaml
+  - ./flux-system-notification-controller-allow-eg-to-k8s-api.yaml
+  - ./flux-system-notification-controller-allow-ig-from-envoy.yaml
+  - ./flux-system-notification-controller-allow-eg-to-source-controller.yaml
+  - ./flux-system-notification-controller-allow-ig-from-host.yaml
+  - ./flux-system-notification-controller-allow-ig-from-kustomize-controller.yaml
