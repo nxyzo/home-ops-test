@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: flux-system-flux-operator-allow-ig-from-host
+  namespace: flux-system
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/instance: flux-operator
+  ingress:
+    - fromEntities:
+        - host
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "8081"
