@@ -8,5 +8,5 @@ resources:
   - ./flux-system-flux-operator-allow-eg-to-coredns.yaml
   - ./flux-system-flux-operator-allow-eg-to-k8s-api.yaml
   - ./flux-system-flux-operator-allow-eg-to-world.yaml
-  #- ./flux-system-flux-operator-allow-ig-from-prometheus.yaml
+  - ./flux-system-flux-operator-allow-ig-from-prometheus.yaml
   - ./flux-system-flux-operator-allow-ig-from-host.yaml
