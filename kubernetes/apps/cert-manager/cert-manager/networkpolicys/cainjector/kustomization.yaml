@@ -1,0 +1,10 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: cert-manager
+
+resources:
+  - ./cert-manager-cainjector-allow-eg-to-coredns.yaml
+  - ./cert-manager-cainjector-allow-eg-to-k8s-api.yaml
+  - ./cert-manager-cainjector-allow-ig-from-prometheus.yaml
