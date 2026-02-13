@@ -1,0 +1,17 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: cert-manager-cert-manager-allow-ig-from-host
+  namespace: cert-manager
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: cert-manager
+  ingress:
+    - fromEntities:
+        - host
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "6080"
+            - protocol:
+              port: "10250"
