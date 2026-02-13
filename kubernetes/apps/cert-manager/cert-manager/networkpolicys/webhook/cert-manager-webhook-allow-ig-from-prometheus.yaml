@@ -6,7 +6,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/component: webhook
+      app.kubernetes.io/name: webhook
   policyTypes:
     - Ingress
   ingress:
