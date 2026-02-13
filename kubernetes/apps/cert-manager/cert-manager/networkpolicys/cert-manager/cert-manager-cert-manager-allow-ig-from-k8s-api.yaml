@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: cert-manager-cert-manager-allow-ig-from-k8s-api
+  namespace: cert-manager
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: cert-manager
+  ingress:
+    - toEntities:
+        - kube-apiserver
+      toPorts:
+        - ports:
+            - port: "10250"
+              protocol: TCP

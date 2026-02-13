@@ -9,3 +9,4 @@ resources:
   - ./cert-manager-cert-manager-allow-eg-to-k8s-api.yaml
   - ./cert-manager-cert-manager-allow-ig-from-host.yaml
   - ./cert-manager-cert-manager-allow-eg-to-coredns.yaml
+  - ./cert-manager-cert-manager-allow-ig-from-k8s-api.yaml
