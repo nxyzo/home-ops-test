@@ -6,7 +6,7 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      app.kubernetes.io/component: cainjector
+      app.kubernetes.io/name: cainjector
   egress:
     - toEntities:
         - kube-apiserver
