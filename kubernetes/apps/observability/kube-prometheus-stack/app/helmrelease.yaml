@@ -23,6 +23,10 @@ spec:
               namespace: network
       alertmanagerSpec:
         replicas: 3
+        podDisruptionBudget:
+          enabled: true
+          minAvailable: 1
+          unhealthyPodEvictionPolicy: AlwaysAllow
         alertmanagerConfiguration:
           name: alertmanager
         externalUrl: https://alertmanager.home-ops.dev.nxyzo.com
