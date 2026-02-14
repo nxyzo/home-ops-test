@@ -22,8 +22,6 @@ spec:
     remediation:
       retries: 3
   values:
-    persistence:
-      defaultDataLocality: best-effort
     defaultSettings:
       defaultDataPath: "/var/mnt/longhorn"
       replicaDiskSoftAntiAffinity: false
