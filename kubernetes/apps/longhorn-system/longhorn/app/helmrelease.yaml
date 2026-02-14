@@ -34,7 +34,9 @@ spec:
       guaranteedEngineManagerCPU: "5"
       guaranteedReplicaManagerCPU: "5"
       nodeDownPodDeletionPolicy: do-nothing
-      orphanAutoDeletion: true
+      orphanAutoDeletion: false
+      deletingConfirmationFlag: false
+      reclaimPolicy: retain
       replicaAutoBalance: best-effort
       storageMinimalAvailablePercentage: "5"
       storageReservedPercentageForDefaultDisk: "10"
