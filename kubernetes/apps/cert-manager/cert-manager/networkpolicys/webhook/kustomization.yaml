@@ -11,3 +11,4 @@ resources:
   - ./cert-manager-webhook-allow-ig-from-prometheus.yaml
   - ./cert-manager-webhook-allow-ig-from-cert-manager.yaml
   - ./cert-manager-webhook-allow-ig-from-envoy-gateway.yaml
+  - ./cert-manager-webhook-allow-ig-from-k8s-api.yaml
