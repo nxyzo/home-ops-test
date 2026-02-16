@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: cert-manager-webhook-allow-ig-from-cert-manager
+  namespace: cert-manager
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: webhook
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: cert-manager
+      - podSelector:
+          matchLabels:
+            helm.toolkit.fluxcd.io/name: cert-manager
+      ports:
+      - protocol: TCP
+        port: 443
+
