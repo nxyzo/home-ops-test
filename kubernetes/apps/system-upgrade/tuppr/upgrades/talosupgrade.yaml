@@ -8,6 +8,10 @@ spec:
   talos:
     # renovate: datasource=docker depName=ghcr.io/siderolabs/installer
     version: v1.12.4
+  talosctl:
+    image:
+      repository: ghcr.io/siderolabs/talosctl  # Optional, default
+      tag: v1.11.0
   policy:
     rebootMode: default
   healthChecks:
