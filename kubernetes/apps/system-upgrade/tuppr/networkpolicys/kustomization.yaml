@@ -10,3 +10,4 @@ resources:
   - ./system-upgrade-allow-ig-from-prometheus.yaml
   - ./system-upgrade-tuppr-allow-eg-to-k8s-api.yaml
   - ./system-upgrade-tuppr-allow-eg-to-talos-api.yaml
+  - ./system-upgrade-tuppr-allow-ig-from-k8s-api.yaml
