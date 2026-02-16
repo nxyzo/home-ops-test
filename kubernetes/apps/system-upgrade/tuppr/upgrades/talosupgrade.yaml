@@ -11,7 +11,7 @@ spec:
   talosctl:
     image:
       repository: ghcr.io/siderolabs/talosctl  # Optional, default
-      tag: v1.11.0
+      tag: v1.12.4
   policy:
     rebootMode: default
   healthChecks:
