@@ -1,0 +1,12 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: cert-manager
+
+resources:
+  - ./observability-victoria-logs-allow-ig-from-prometheus.yaml
+  - ./observability-victoria-logs-allow-ig-from-host.yaml
+  - ./observability-victoria-logs-allow-ig-from-envoy-gateway.yaml
+  - ./observability-victoria-logs-allow-eg-to-coredns.yaml
+  - ./observability-victoria-logs-ig-from-fluent-bit.yaml
