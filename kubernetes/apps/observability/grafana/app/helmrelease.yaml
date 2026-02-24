@@ -14,5 +14,3 @@ spec:
       enabled: true
     serviceMonitor:
       enabled: true
-    plugins:
-      - https://grafana.com/api/plugins/victoriametrics-logs-datasource/versions/0.25.0/download;victoriametrics-logs-datasource
