@@ -48,3 +48,6 @@ spec:
     jsonData:
       implementation: prometheus
     url: http://victoria-logs-server.observability.svc.cluster.local:9428
+  plugins:
+    - name: victoriametrics-logs-datasource
+      version: "0.25.0"
