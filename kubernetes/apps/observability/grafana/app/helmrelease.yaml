@@ -15,4 +15,4 @@ spec:
     serviceMonitor:
       enabled: true
     plugins:
-      - victoriametrics-logs-datasource
+      - https://grafana.com/api/plugins/victoriametrics-logs-datasource/versions/0.25.0/download;victoriametrics-logs-datasource
