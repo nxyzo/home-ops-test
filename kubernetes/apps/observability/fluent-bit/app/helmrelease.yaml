@@ -31,21 +31,18 @@ spec:
           parser containerd
           tag kubernetes.*
           skip_empty_lines on
-          skip_long_lines off
-          mem_buf_limit 50MB
+          skip_long_lines on
 
       filters: |-
         [FILTER]
           name kubernetes
           match kubernetes.*
           merge_log on
-          Keep_Log on
           kube_tag_prefix kubernetes.var.log.containers.
           k8s-logging.parser on
           k8s-logging.exclude on
           namespace_labels off
           annotations off
-          Buffer_Size 256k
 
         [FILTER]
           name nest
@@ -67,7 +64,6 @@ spec:
           rename k_labels_app.kubernetes.io/name app
           rename k_labels_app app
           rename k_labels_k8s-app app
-          rename k_labels_app.kubernetes.io/instance app_instance
 
       customParsers: |-
         [PARSER]
@@ -83,22 +79,13 @@ spec:
           match kubernetes.*
           host victoria-logs-server.observability.svc.cluster.local
           port 9428
-          uri /insert/jsonline?_stream_fields=stream,k_namespace_name,k_pod_name,app,app_instance&_msg_field=log&_time_field=date
+          uri /insert/jsonline?_stream_fields=stream,k_namespace_name,k_pod_name,app&_msg_field=log&_time_field=date
           format json_lines
-          json_date_key date
           json_date_format iso8601
           compress gzip
           log_response_payload false
-
-        [OUTPUT]
-          name stdout
-          match kubernetes.*
-          format json_lines
-
     dashboards:
       enabled: true
-
     serviceMonitor:
       enabled: true
-
-    logLevel: info
+    logLevel: warn
