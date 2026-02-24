@@ -42,7 +42,7 @@ spec:
     matchLabels:
       grafana.internal/instance: grafana
   datasource:
-    type: victoriametrics-logs-datasource
+    type: victoria-logs
     name: victorialogs
     access: proxy
     jsonData:
