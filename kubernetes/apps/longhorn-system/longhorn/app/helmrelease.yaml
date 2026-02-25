@@ -31,8 +31,9 @@ spec:
       defaultReplicaCount: "2"
       guaranteedEngineManagerCPU: "5"
       guaranteedReplicaManagerCPU: "5"
-      nodeDownPodDeletionPolicy: do-nothing
-      orphanAutoDeletion: false
+      nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
+      disableSchedulingOnCordonedNode: true
+      orphanAutoDeletion: true
       deletingConfirmationFlag: false
       reclaimPolicy: retain
       replicaAutoBalance: best-effort
