@@ -59,7 +59,6 @@ metadata:
 spec:
   dependsOn:
     - name: tuppr
-    - name: kube-prometheus-stack
   interval: 1h
   path: ./kubernetes/apps/system-upgrade/tuppr/alertrules
   prune: true
