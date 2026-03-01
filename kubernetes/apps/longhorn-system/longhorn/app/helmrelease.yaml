@@ -33,6 +33,8 @@ spec:
       guaranteedReplicaManagerCPU: "5"
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
       disableSchedulingOnCordonedNode: true
+      nodeDrainPolicy: block-for-eviction-if-contains-last-replica
+      detachManuallyAttachedVolumesWhenCordoned: true
       orphanAutoDeletion: true
       deletingConfirmationFlag: false
       reclaimPolicy: retain
