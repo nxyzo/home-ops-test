@@ -6,7 +6,7 @@ namespace: observability
 
 components:
   - ../../components/sops
-  #- ../../components/alert
+  - ../../components/alert
 
 resources:
   - ./namespace.yaml
