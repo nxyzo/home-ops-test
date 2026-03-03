@@ -6,4 +6,4 @@ namespace: system-upgrade
 
 resources:
   - ./namespace.yaml
-  - ./tuppr/ks.yaml
+  #- ./tuppr/ks.yaml
