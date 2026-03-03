@@ -6,7 +6,7 @@ namespace: longhorn-system
 
 components:
   - ../../components/sops
-  - ../../components/alert
+  #- ../../components/alert
 
 resources:
   - ./namespace.yaml

@@ -5,6 +5,7 @@ namespace: network
 
 components:
   - ../../components/sops
+  #- ../../components/alert
 
 resources:
   - ./namespace.yaml
