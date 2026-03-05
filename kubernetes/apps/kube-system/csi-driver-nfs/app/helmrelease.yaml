@@ -16,7 +16,7 @@ spec:
       create: true
       name: nfs-k8s
       parameters:
-        server: truenas.home.ptechnet.com
+        server: 192.168.50.11
         share: /mnt/hdd-store/home-ops-test-k8s
       mountOptions:
         - nfsvers=4.2
