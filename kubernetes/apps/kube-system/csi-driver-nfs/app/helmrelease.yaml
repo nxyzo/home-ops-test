@@ -1,0 +1,29 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: csi-driver-nfs
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: csi-driver-nfs
+  interval: 1h
+  values:
+    controller:
+      enableSnapshotter: false
+    storageClass:
+      create: true
+      name: nfs-k8s
+      parameters:
+        server: truenas.home.ptechnet.com
+        share: /mnt/hdd-store/home-ops-test-k8s
+      mountOptions:
+        - nfsvers=4.2
+        - nconnect=16
+        - hard
+        - noatime
+        - rsize=1048576
+        - wsize=1048576
+      reclaimPolicy: Delete
+      volumeBindingMode: Immediate
