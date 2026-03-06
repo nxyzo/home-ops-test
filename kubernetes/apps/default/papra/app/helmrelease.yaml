@@ -74,9 +74,15 @@ spec:
           - name: envoy-internal
             namespace: network
     persistence:
-      media:
+      data:
         enabled: true
         type: persistentVolumeClaim
         storageClass: nfs-k8s
         accessMode: ReadWriteMany
         size: 10Gi
+        globalMounts:
+          - /app/app-data
+      tmp:
+        type: emptyDir
+        globalMounts:
+          - path: /tmp
