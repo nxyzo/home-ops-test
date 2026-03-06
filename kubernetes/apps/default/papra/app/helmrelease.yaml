@@ -27,6 +27,8 @@ spec:
                 value: "https://{{ .Release.Name }}.home-ops.dev.nxyzo.com"
               # - name: DOCUMENTS_OCR_LANGUAGES
               #   value: "eng, ger"
+              - name: DOCUMENT_STORAGE_MAX_UPLOAD_SIZE
+                value: 0
               - name: TZ
                 value: "Europe/Berlin"
               - name: AUTH_SECRET
