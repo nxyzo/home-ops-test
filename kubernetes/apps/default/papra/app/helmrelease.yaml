@@ -51,8 +51,7 @@ spec:
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
-              capabilities:
-                capabilities: {drop: ["ALL"]}
+              capabilities: {drop: ["ALL"]}
 
     defaultPodOptions:
       securityContext:
