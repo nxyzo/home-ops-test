@@ -81,7 +81,7 @@ spec:
         accessMode: ReadWriteMany
         size: 10Gi
         globalMounts:
-          - /app/app-data
+          - path: /app/app-data
       tmp:
         type: emptyDir
         globalMounts:
