@@ -72,6 +72,7 @@ spec:
       papra:
         hostnames:
           - "{{ .Release.Name }}.home-ops.dev.nxyzo.com"
+          - "{{ .Release.Name }}.nxyzo.com"
         parentRefs:
           - name: envoy-internal
             namespace: network
