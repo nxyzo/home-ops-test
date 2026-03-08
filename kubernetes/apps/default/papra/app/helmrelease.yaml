@@ -24,7 +24,7 @@ spec:
               # - name: PROCESS_MODE
               #   value: "all"
               - name: APP_BASE_URL
-                value: "https://{{ .Release.Name }}.home-ops.dev.nxyzo.com"
+                value: "https://{{ .Release.Name }}.nxyzo.com"
               # - name: DOCUMENTS_OCR_LANGUAGES
               #   value: "eng, ger"
               - name: DOCUMENT_STORAGE_MAX_UPLOAD_SIZE
@@ -71,7 +71,6 @@ spec:
     route:
       papra:
         hostnames:
-          - "{{ .Release.Name }}.home-ops.dev.nxyzo.com"
           - "{{ .Release.Name }}.nxyzo.com"
         parentRefs:
           - name: envoy-internal
