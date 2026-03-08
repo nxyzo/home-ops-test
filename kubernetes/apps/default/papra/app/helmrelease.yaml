@@ -14,7 +14,7 @@ spec:
       papra:
         replicas: 1
         containers:
-          papra:
+          app:
             image:
               repository: ghcr.io/papra-hq/papra
               tag: 26.2.2-rootless@sha256:1eaefed5fb049afa2456e0cd73e48a54addbca279af39c72dff7de730549730e
