@@ -6,7 +6,7 @@ metadata:
   name: cloudnative-pg
 spec:
   interval: 1h
-  path: ./kubernetes/apps/cnpg-system/cnpg-operator/app
+  path: ./kubernetes/apps/cnpg-system/cloudnative-pg/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -24,7 +24,7 @@ spec:
   dependsOn:
     - name: cloudnative-pg
   interval: 1h
-  path: ./kubernetes/apps/cnpg-system/cnpg-operator/dashboard
+  path: ./kubernetes/apps/cnpg-system/cloudnative-pg/dashboard
   prune: true
   sourceRef:
     kind: GitRepository
