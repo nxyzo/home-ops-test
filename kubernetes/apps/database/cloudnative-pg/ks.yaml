@@ -6,7 +6,7 @@ metadata:
   name: cloudnative-pg-cluster
 spec:
   interval: 1h
-  path: ./kubernetes/apps/database/cloudnative-pg/cluster
+  path: ./kubernetes/apps/database/cloudnative-pg/cluster-example
   prune: true
   sourceRef:
     kind: GitRepository
