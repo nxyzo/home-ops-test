@@ -15,3 +15,8 @@ spec:
         kind: HelmRepository
         name: cloudnative-pg
         namespace: cnpg-system
+  values:
+    monitoring:
+      podMonitorEnabled: true
+      grafanaDashboard:
+        create: true
