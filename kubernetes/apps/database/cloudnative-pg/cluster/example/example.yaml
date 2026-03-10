@@ -3,6 +3,7 @@ kind: Cluster
 metadata:
   name: cluster-example
 spec:
+  primaryUpdateStrategy: unsupervised
   instances: 3
 
   storage:
