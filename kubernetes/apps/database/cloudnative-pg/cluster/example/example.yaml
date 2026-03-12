@@ -22,8 +22,8 @@ spec:
       - regex: cluster
         action: labeldrop
 
-  parameters:
-    idle_in_transaction_session_timeout: "300000" # 5min
+  # parameters:
+  #   idle_in_transaction_session_timeout: "300000" # 5min
 
   resources:
     requests:
