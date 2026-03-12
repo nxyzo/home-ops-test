@@ -5,3 +5,4 @@ resources:
   - ./example.yaml
   - ./secret.sops.yaml
   - ./secret-superuser.sops.yaml
+  - ./backup.yaml
