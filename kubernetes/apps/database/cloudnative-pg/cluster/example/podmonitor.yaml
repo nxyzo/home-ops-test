@@ -14,8 +14,7 @@ spec:
     - port: metrics
       interval: 30s
       relabelings:
-        - sourceLabels:
-            - cluster
+        - sourceLabels: ["cluster"]
           targetLabel: cnpg_cluster
           action: replace
         - regex: cluster
