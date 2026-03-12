@@ -11,12 +11,64 @@ spec:
 
   storage:
     size: 1Gi
+
   monitoring:
     enablePodMonitor: true
+    podMonitorMetricRelabelings:
+      - sourceLabels:
+          - cluster
+        targetLabel: cnpg_cluster
+        action: replace
+      - regex: cluster
+        action: labeldrop
+
+  parameters:
+    idle_in_transaction_session_timeout: "300000" # 5min
+
   resources:
     requests:
-      memory: "32Mi"
-      cpu: "50m"
+      memory: 800Mi
+      cpu: 200m
     limits:
-      memory: "512Mi"
-      cpu: "200m"
+      memory: 2Gi
+
+  superuserSecret:
+    name: "{{ .Release.Name }}-superuser-secret"
+  enableSuperuserAccess: true
+
+  nodeMaintenanceWindow:
+    inProgress: false
+    reusePVC: true
+
+  backup:
+    retentionPolicy: 30d
+    barmanObjectStore:
+      data:
+        compression: bzip2
+      wal:
+        compression: bzip2
+        maxParallel: 8
+      destinationPath: s3://home-ops-test-pg-cluster-example/
+      endpointURL: https://s3.eu-central-003.backblazeb2.com
+      serverName: cluster-example
+      s3Credentials:
+        accessKeyId:
+          name: cluster-example-s3-secret
+          key: aws-access-key-id
+        secretAccessKey:
+          name: cluster-example-s3-secret
+          key: aws-secret-access-key
+  # Note: previousCluster needs to be set to the name of the previous cluster
+  # when recovering from an existing cnpg cluster
+  # bootstrap:
+  #   recovery:
+  #     source: &previousCluster postgres16-v2
+  #     recoveryTarget:
+  #       targetTime: "2024-08-19 20:30:00.00000+02"
+  # # Note: externalClusters is needed when recovering from an existing cnpg
+  # # cluster
+  # externalClusters:
+  #   - name: *previousCluster
+  #     barmanObjectStore:
+  #       <<: *barmanObjectStore
+  #       serverName: *previousCluster
