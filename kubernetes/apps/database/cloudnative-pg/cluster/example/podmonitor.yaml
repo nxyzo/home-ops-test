@@ -2,6 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   name: cluster-example
+  namespace: database
 spec:
   namespaceSelector:
     matchNames:
@@ -10,12 +11,12 @@ spec:
     matchLabels:
       cnpg.io/cluster: cluster-example
   podMetricsEndpoints:
-  - port: metrics
-    interval: 30s
-    relabelings:
-      - sourceLabels:
-          - cluster
-        targetLabel: cnpg_cluster
-        action: replace
-      - regex: cluster
-        action: labeldrop
+    - port: metrics
+      interval: 30s
+      relabelings:
+        - sourceLabels:
+            - cluster
+          targetLabel: cnpg_cluster
+          action: replace
+        - regex: cluster
+          action: labeldrop
