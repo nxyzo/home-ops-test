@@ -4,8 +4,8 @@ metadata:
   name: cluster-example
 spec:
   namespaceSelector:
-    matchLabels:
-      kubernetes.io/metadata.name: database
+    matchNames:
+      - database
   selector:
     matchLabels:
       cnpg.io/cluster: cluster-example
