@@ -12,15 +12,15 @@ spec:
   storage:
     size: 1Gi
 
-  monitoring:
-    enablePodMonitor: true
-    podMonitorMetricRelabelings:
-      - sourceLabels:
-          - cluster
-        targetLabel: cnpg_cluster
-        action: replace
-      - regex: cluster
-        action: labeldrop
+  # monitoring:
+  #   enablePodMonitor: true
+  #   podMonitorMetricRelabelings:
+  #     - sourceLabels:
+  #         - cluster
+  #       targetLabel: cnpg_cluster
+  #       action: replace
+  #     - regex: cluster
+  #       action: labeldrop
 
   # parameters:
   #   idle_in_transaction_session_timeout: "300000" # 5min
