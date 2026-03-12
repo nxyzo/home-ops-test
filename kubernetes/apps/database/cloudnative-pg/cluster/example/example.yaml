@@ -21,10 +21,10 @@ spec:
   #       action: replace
   #     - regex: cluster
   #       action: labeldrop
-
-  parameters:
-    archive_timeout: 60s
-    idle_in_transaction_session_timeout: "300000" # 5min
+  postgresql:
+    parameters:
+      archive_timeout: 60s
+      idle_in_transaction_session_timeout: "300000" # 5min
 
   resources:
     requests:
