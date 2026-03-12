@@ -6,3 +6,4 @@ resources:
   - ./secret.sops.yaml
   - ./secret-superuser.sops.yaml
   - ./backup.yaml
+  - ./podmonitor.yaml
