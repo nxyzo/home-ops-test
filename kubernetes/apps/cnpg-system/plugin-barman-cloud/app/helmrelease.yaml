@@ -3,15 +3,15 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: barman-cloud-plugin
+  name: plugin-barman-cloud
   namespace: cnpg-system
 spec:
   interval: 1h
   chart:
     spec:
-      chart: barman-cloud-plugin
+      chart: plugin-barman-cloud
       version: v0.11.0
       sourceRef:
         kind: HelmRepository
-        name: barman-cloud-plugin
+        name: plugin-barman-cloud
         namespace: cnpg-system
