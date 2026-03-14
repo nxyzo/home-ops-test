@@ -45,7 +45,7 @@ spec:
                     optional: false
 
           - name: talosctl
-            image: ghcr.io/siderolabs/talosctl:v1.12.4
+            image: ghcr.io/siderolabs/talosctl:v1.12.5
             args:
               - -n
               - "$(CP_NODE_IP)"
