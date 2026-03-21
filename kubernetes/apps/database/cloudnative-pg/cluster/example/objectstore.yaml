@@ -3,21 +3,20 @@ kind: ObjectStore
 metadata:
   name: backup-cluster-example
 spec:
-    barmanObjectStore:
-      data:
-        compression: bzip2
-      wal:
-        compression: bzip2
-        maxParallel: 8
-      destinationPath: s3://home-ops-test-pg-cluster-example/
-      retentionPolicy: 30d
-      endpointURL: https://s3.eu-central-003.backblazeb2.com
-      serverName: cluster-example
-      s3Credentials:
-        accessKeyId:
-          name: cluster-example-s3-secret
-          key: aws-access-key-id
-        secretAccessKey:
-          name: cluster-example-s3-secret
-          key: aws-secret-access-key
+    data:
+      compression: bzip2
+    wal:
+      compression: bzip2
+      maxParallel: 8
+    destinationPath: s3://home-ops-test-pg-cluster-example/
+    retentionPolicy: 30d
+    endpointURL: https://s3.eu-central-003.backblazeb2.com
+    serverName: cluster-example
+    s3Credentials:
+      accessKeyId:
+        name: cluster-example-s3-secret
+        key: aws-access-key-id
+      secretAccessKey:
+        name: cluster-example-s3-secret
+        key: aws-secret-access-key
 
