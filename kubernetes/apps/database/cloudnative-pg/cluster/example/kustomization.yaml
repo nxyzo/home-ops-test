@@ -7,3 +7,4 @@ resources:
   - ./secret-superuser.sops.yaml
   - ./backup.yaml
   - ./podmonitor.yaml
+  - ./objectstore.yaml
