@@ -11,7 +11,7 @@ spec:
     destinationPath: s3://home-ops-test-pg-cluster-example/
     retentionPolicy: 30d
     endpointURL: https://s3.eu-central-003.backblazeb2.com
-    serverName: cluster-example
+    #serverName: cluster-example
     s3Credentials:
       accessKeyId:
         name: cluster-example-s3-secret
