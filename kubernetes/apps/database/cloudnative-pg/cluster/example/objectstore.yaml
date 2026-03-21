@@ -5,7 +5,7 @@ metadata:
 spec:
   retentionPolicy: 30d
   configuration:
-    serverName: cluster-example
+    #serverName: cluster-example
     data:
       compression: bzip2
     wal:
