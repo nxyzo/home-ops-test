@@ -4,7 +4,7 @@ metadata:
   name: backup-example-cluster-test
 spec:
   suspend: false # To temporarily stop scheduled backups from running
-  schedule: "21 21 * * * *"  # At midnight every day
+  schedule: "03 22 * * * *"  # At midnight every day
   immediate: true
   backupOwnerReference: self
   method: plugin
