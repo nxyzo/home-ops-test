@@ -202,6 +202,23 @@ nodes:
           - gateway: "192.168.50.1"
             network: 0.0.0.0/0
         mtu: 1500
+  - hostname: "ho-dev-wk-04"
+    ipAddress: "192.168.50.163"
+    installDisk: "/dev/sda"
+    machineSpec:
+      secureboot: true
+    talosImageURL: factory.talos.dev/installer-secureboot/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "bc:24:11:96:17:8a"
+        dhcp: false
+        addresses:
+          - "192.168.50.163/24"
+        routes:
+          - gateway: "192.168.50.1"
+            network: 0.0.0.0/0
+        mtu: 1500
 
 # Global patches
 patches:
