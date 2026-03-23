@@ -7,7 +7,9 @@ spec:
   schedule: "0 0 0 * * *"  # At midnight every day
   immediate: true
   backupOwnerReference: self
-  method: barmanObjectStore
+  method: plugin
+  pluginConfiguration:
+    name: barman-cloud.cloudnative-pg.io
   cluster:
     name: cluster-example
   # method: plugin, volumeSnapshot, or barmanObjectStore (default)
