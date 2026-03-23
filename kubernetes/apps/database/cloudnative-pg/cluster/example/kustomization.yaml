@@ -8,3 +8,4 @@ resources:
   - ./backup.yaml
   - ./podmonitor.yaml
   - ./objectstore.yaml
+  - ./test-backup.yaml
