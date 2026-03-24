@@ -37,11 +37,11 @@ spec:
                 memory: 200M
               limits:
                 memory: 300M
-            securityContext:
-              allowPrivilegeEscalation: true
-              readOnlyRootFilesystem: false
-              capabilities: {drop: ["ALL"]}
-        defaultContainerOptions:
+            # securityContext:
+            #   allowPrivilegeEscalation: true
+            #   readOnlyRootFilesystem: false
+            #   capabilities: {drop: ["ALL"]}
+        pod:
           securityContext:
             runAsNonRoot: true
             runAsUser: 5050
