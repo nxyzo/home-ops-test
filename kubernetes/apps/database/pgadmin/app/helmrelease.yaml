@@ -13,7 +13,6 @@ spec:
   values:
     controllers:
       pgadmin:
-        strategy: Recreate
         containers:
           app:
             image:
