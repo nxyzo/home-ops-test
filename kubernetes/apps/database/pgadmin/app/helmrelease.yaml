@@ -1,0 +1,76 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/app-template-4.6.2/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app pgadmin
+  namespace: database
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: pgadmin
+  interval: 1h
+  values:
+    controllers:
+      pgadmin:
+        strategy: Recreate
+        containers:
+          app:
+            image:
+              repository: dpage/pgadmin4
+              tag: 9.13@sha256:d243a4bcc02d2ee6b447c601692813531d2d0fbca18b583d9f7f9658da835d81
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: pgadmin-secret
+            probes:
+              liveness: &probes
+                enabled: true
+              readiness: *probes
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 5
+            resources:
+              requests:
+                cpu: 15m
+                memory: 200M
+              limits:
+                memory: 300M
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: {drop: ["ALL"]}
+        defaultContainerOptions:
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 5050
+            runAsGroup: 5050
+            fsGroup: 5050
+            fsGroupChangePolicy: OnRootMismatch
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: &port 80
+    route:
+      papra:
+        hostnames:
+          - "{{ .Release.Name }}.nxyzo.com"
+        parentRefs:
+          - name: envoy-internal
+            namespace: network
+
+    persistence:
+      config:
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        globalMounts:
+          - path: /var/lib/pgadmin
+      tmp:
+        type: emptyDir
+        globalMounts:
+          - path: /tmp
