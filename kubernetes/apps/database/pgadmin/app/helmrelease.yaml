@@ -50,12 +50,12 @@ spec:
             fsGroupChangePolicy: OnRootMismatch
     service:
       main:
-        controller: main
+        controller: pgadmin
         ports:
           http:
             port: &port 80
     route:
-      papra:
+      pgadmin:
         hostnames:
           - "{{ .Release.Name }}.nxyzo.com"
         parentRefs:
