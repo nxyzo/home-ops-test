@@ -38,8 +38,8 @@ spec:
               limits:
                 memory: 300M
             securityContext:
-              allowPrivilegeEscalation: false
-              #readOnlyRootFilesystem: true
+              allowPrivilegeEscalation: true
+              readOnlyRootFilesystem: false
               capabilities: {drop: ["ALL"]}
         defaultContainerOptions:
           securityContext:
