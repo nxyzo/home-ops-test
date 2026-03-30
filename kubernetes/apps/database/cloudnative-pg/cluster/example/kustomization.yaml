@@ -9,3 +9,5 @@ resources:
   - ./monitoring/podmonitor.yaml
   - ./backup/objectstore.yaml
   - ./databases/test-db.yaml
+  - ./roles/database-roles.yaml
+  - ./roles/secret.sops.yaml

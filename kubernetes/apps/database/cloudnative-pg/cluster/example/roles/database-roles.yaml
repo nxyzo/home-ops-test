@@ -1,0 +1,15 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+spec:
+  managed:
+    roles:
+    - name: test_user
+      ensure: present
+      comment: test_user
+      login: true
+      superuser: false
+      inRoles:
+        - pg_monitor
+        - pg_signal_backend
+      passwordSecret:
+        name: cluster-example-test_user
