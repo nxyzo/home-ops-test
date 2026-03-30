@@ -4,7 +4,7 @@ metadata:
   name: test-db
 spec:
   name: test-db
-  owner: app
+  owner: test_user
   cluster:
     name: cluster-example
   extensions:
