@@ -47,6 +47,19 @@ spec:
     parameters:
       barmanObjectName: backup-cluster-example
 
+  managed:
+    roles:
+    - name: test-user
+      ensure: present
+      comment: test-user
+      login: true
+      superuser: false
+      inRoles:
+        - pg_monitor
+        - pg_signal_backend
+      passwordSecret:
+        name: cluster-example-test-user
+
   # Note: previousCluster needs to be set to the name of the previous cluster
   # when recovering from an existing cnpg cluster
   # bootstrap:
