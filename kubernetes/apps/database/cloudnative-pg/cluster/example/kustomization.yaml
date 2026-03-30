@@ -3,9 +3,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ./example.yaml
-  - ./secret.sops.yaml
-  - ./secret-superuser.sops.yaml
-  - ./backup.yaml
-  - ./podmonitor.yaml
-  - ./objectstore.yaml
+  - ./secrets/secret.sops.yaml
+  - ./secrets/secret-superuser.sops.yaml
+  - ./backup/backup.yaml
+  - ./monitoring/podmonitor.yaml
+  - ./backup/objectstore.yaml
   - ./databases/test-db.yaml
