@@ -9,4 +9,4 @@ resources:
   - ./monitoring/podmonitor.yaml
   - ./backup/objectstore.yaml
   - ./databases/test-db.yaml
-  - ./secret/secret-cluster-example-test-user.yaml
+  - ./secrets/secret-cluster-example-test-user.yaml
