@@ -1,5 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
+metadata:
+  name: cluster-example-role-test_user
 spec:
   managed:
     roles:
