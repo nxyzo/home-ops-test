@@ -75,9 +75,11 @@ spec:
         retentionSize: 16GB
         resources:
           requests:
-            cpu: 100m
+            cpu: 500m
+            requests:
+              memory: 1Gi
           limits:
-            memory: 1000Mi
+            memory: 2Gi
         storageSpec:
           volumeClaimTemplate:
             spec:
