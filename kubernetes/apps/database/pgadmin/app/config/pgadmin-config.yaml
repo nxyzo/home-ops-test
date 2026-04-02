@@ -7,12 +7,12 @@ data:
     {
       "Servers": {
         "1": {
-          "Name": "Postgres Prod",
+          "Name": "test-db",
           "Group": "Servers",
           "Host": "cluster-example-rw.database.svc.cluster.local",
           "Port": 5432,
-          "MaintenanceDB": "postgres",
-          "Username": "postgres",
+          "MaintenanceDB": "test-db",
+          "Username": "test-user",
           "SSLMode": "prefer"
         }
       }
