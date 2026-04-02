@@ -19,6 +19,8 @@ spec:
               repository: dpage/pgadmin4
               tag: 9.13@sha256:d243a4bcc02d2ee6b447c601692813531d2d0fbca18b583d9f7f9658da835d81
               pullPolicy: IfNotPresent
+            env:
+              PGADMIN_REPLACE_SERVERS_ON_STARTUP: "True"
             envFrom:
               - secretRef:
                   name: pgadmin-secret
@@ -72,18 +74,13 @@ spec:
         globalMounts:
           - path: /var/lib/pgadmin
 
-      server-json:
+      servers:
+        enabled: true
         type: configMap
         name: pgadmin-config
-      # tmp:
-      #   type: emptyDir
-      #   globalMounts:
-      #     - path: /tmp
-
-    volumes:
-      - name: pgadmin-config
-        configMap:
-          name: pgadmin-config
-          mountPath: /pgadmin4/servers.json
-          subPath: servers.json
-          readOnly: true
+        advancedMounts:
+          pgadmin:
+            app:
+              - path: /pgadmin4/servers.json
+                subPath: servers.json
+                readOnly: true
