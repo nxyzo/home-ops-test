@@ -17,6 +17,3 @@ data:
         }
       }
     }
-
-  config_distro.py: |
-    SERVER_MODE = True
