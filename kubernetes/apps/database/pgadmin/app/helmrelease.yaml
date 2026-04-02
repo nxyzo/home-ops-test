@@ -79,3 +79,11 @@ spec:
       #   type: emptyDir
       #   globalMounts:
       #     - path: /tmp
+
+    volumes:
+      - name: pgadmin-config
+        configMap:
+          name: pgadmin-config
+          mountPath: /pgadmin4/servers.json
+          subPath: servers.json
+          readOnly: true
