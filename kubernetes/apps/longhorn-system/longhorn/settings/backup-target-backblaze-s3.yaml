@@ -3,7 +3,7 @@
 apiVersion: longhorn.io/v1beta2
 kind: Setting
 metadata:
-  name: backup-target-backblaze-s3
+  name: backup-target
   namespace: longhorn-system
 value: "s3://home-ops-test-longhorn-backup@eu-central-003/"
 ---
