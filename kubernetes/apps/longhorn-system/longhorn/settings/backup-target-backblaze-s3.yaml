@@ -1,0 +1,15 @@
+# longhorn-s3-backup-settings.yaml
+# Configure Longhorn to use S3 as the backup target
+apiVersion: longhorn.io/v1beta2
+kind: Setting
+metadata:
+  name: backup-target-backblaze-s3
+  namespace: longhorn-system
+value: "s3://home-ops-test-longhorn-backup@eu-central-003/"
+---
+apiVersion: longhorn.io/v1beta2
+kind: Setting
+metadata:
+  name: longhorn-backblaze-s3-secret
+  namespace: longhorn-system
+value: "longhorn-backblaze-s3-secret"
