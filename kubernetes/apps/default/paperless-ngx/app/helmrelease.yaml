@@ -13,6 +13,26 @@ spec:
     controllers:
       paperless-ngx:
         replicas: 1
+        initContainers:
+          fix-run:
+            image:
+              repository: busybox
+              tag: "1.36"
+            command:
+              - sh
+              - -c
+              - |
+                mkdir -p /run
+                chown 1000:1000 /run
+                chmod 755 /run
+            securityContext:
+              runAsUser: 0
+              runAsGroup: 0
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop: ["ALL"]
+
         containers:
           app:
             image:
@@ -90,5 +110,9 @@ spec:
           - path: /tmp
       run:
         type: emptyDir
-        globalMounts:
-          - path: /run
+        advancedMounts:
+          papra:
+            app:
+              - path: /run
+            fix-run:
+              - path: /run
