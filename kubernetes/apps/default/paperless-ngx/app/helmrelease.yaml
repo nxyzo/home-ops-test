@@ -29,7 +29,7 @@ spec:
               runAsUser: 0
               runAsGroup: 0
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              #readOnlyRootFilesystem: true
               capabilities:
                 drop: ["ALL"]
 
