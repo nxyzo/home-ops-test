@@ -26,6 +26,7 @@ spec:
   dependsOn:
     - name: kyverno
     - name: grafana
+      namespace: observability
   interval: 1h
   path: ./kubernetes/apps/kyverno/kyverno/dashboard
   postBuild:
