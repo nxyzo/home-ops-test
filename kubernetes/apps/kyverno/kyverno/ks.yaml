@@ -25,6 +25,7 @@ metadata:
 spec:
   dependsOn:
     - name: kyverno
+    - name: grafana
   interval: 1h
   path: ./kubernetes/apps/kyverno/kyverno/dashboard
   postBuild:
