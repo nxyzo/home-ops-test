@@ -1,7 +1,7 @@
 apiVersion: kyverno.io/v1
 kind: Policy
 metadata:
-  name: drop-all-capabilities
+  name: default-drop-all-capabilities
   namespace: default
   annotations:
     policies.kyverno.io/title: Drop All Capabilities
