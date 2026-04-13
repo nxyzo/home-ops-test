@@ -1,5 +1,5 @@
 apiVersion: kyverno.io/v1
-kind: Policy
+kind: ValidatingPolicy
 metadata:
   name: default-enforce-resource-limits
   namespace: default
