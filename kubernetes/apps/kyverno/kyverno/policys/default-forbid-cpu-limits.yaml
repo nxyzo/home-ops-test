@@ -15,7 +15,7 @@ spec:
     background:
       enabled: true
   validationActions:
-    - Enforce
+    - Deny
   matchConstraints:
     resourceRules:
       - apiGroups:
