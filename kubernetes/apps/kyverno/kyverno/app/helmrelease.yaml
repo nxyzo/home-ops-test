@@ -60,5 +60,3 @@ spec:
       replicas: 3
       serviceMonitor:
         enabled: true
-      ui:
-        enabled: true
