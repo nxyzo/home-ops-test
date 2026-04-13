@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - ./default-drop-all-capabilities.yaml
 - ./default-forbid-cpu-limits.yaml
+- ./default-enforce-resource-limits.yaml
