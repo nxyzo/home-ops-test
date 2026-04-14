@@ -20,7 +20,7 @@ spec:
     crds:
       reportServer: true
       migration:
-        enable: true
+        enabled: true
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true
@@ -32,7 +32,7 @@ spec:
           seccompProfile:
             type: RuntimeDefault
         podResources:
-          request:
+          requests:
             cpu: 10m
             memory: 64Mi
           limits:
