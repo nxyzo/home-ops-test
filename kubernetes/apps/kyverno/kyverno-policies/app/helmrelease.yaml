@@ -21,3 +21,24 @@ spec:
     policyType: ValidatingPolicy
     podSecurityStandard: baseline
     podSecuritySeverity: medium
+    # default for all namespaces that are not explicitly listed in validationFailureActionOverrides
+    validationFailureAction: Enforce
+
+    # audit these namespaces
+    validationFailureActionOverrides:
+      all:
+        - action: Audit
+          namespaces:
+            - kube-system
+            - longhorn-system
+            - network
+            - cert-manager
+            - cilium-secrets
+            - cnpg-system
+            - database
+            - flux-system
+            - kube-node-lease
+            - kube-public
+            - kyverno
+            - observability
+            - system-upgrade
