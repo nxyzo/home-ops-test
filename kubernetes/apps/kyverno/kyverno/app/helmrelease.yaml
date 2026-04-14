@@ -44,6 +44,15 @@ spec:
         - longhorn-system
         - network
         - cert-manager
+        - cilium-secrets
+        - cnpg-system
+        - database
+        - flux-system
+        - kube-node-lease
+        - kube-public
+        - kyverno
+        - observability
+        - system-upgrade
     admissionController:
       replicas: 3
       serviceMonitor:
