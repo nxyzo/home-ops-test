@@ -22,7 +22,7 @@ spec:
     podSecurityStandard: baseline
     podSecuritySeverity: medium
     # default for all namespaces that are not explicitly listed in validationFailureActionOverrides
-    validationFailureAction: Enforce
+    validationFailureAction: Audit
 
     # audit these namespaces
     validationFailureActionOverrides:
