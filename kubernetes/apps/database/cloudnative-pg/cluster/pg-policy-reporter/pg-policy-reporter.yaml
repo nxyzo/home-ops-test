@@ -47,48 +47,48 @@ spec:
           - name: pg-policy-reporter-init
             key: 01-privileges.sql
 
-managed:
-    roles:
-      - name: pg-policy-reporter-owner
-        ensure: present
-        login: false
-        comment: Non-login owner role for policy-reporter database and schema
+  managed:
+      roles:
+        - name: pg-policy-reporter-owner
+          ensure: present
+          login: false
+          comment: Non-login owner role for policy-reporter database and schema
 
-      - name: pg-policy-reporter-app
-        ensure: present
-        login: true
-        superuser: false
-        createdb: false
-        createrole: false
-        replication: false
-        bypassrls: false
-        comment: Runtime application user for policy-reporter
-        passwordSecret:
-          name: pg-policy-reporter-app
+        - name: pg-policy-reporter-app
+          ensure: present
+          login: true
+          superuser: false
+          createdb: false
+          createrole: false
+          replication: false
+          bypassrls: false
+          comment: Runtime application user for policy-reporter
+          passwordSecret:
+            name: pg-policy-reporter-app
 
-      - name: pg-policy-reporter-ro
-        ensure: present
-        login: true
-        superuser: false
-        createdb: false
-        createrole: false
-        replication: false
-        bypassrls: false
-        comment: Optional read-only user for policy-reporter
-        passwordSecret:
-          name: pg-policy-reporter-ro
+        - name: pg-policy-reporter-ro
+          ensure: present
+          login: true
+          superuser: false
+          createdb: false
+          createrole: false
+          replication: false
+          bypassrls: false
+          comment: Optional read-only user for policy-reporter
+          passwordSecret:
+            name: pg-policy-reporter-ro
 
-  # Note: previousCluster needs to be set to the name of the previous cluster
-  # when recovering from an existing cnpg cluster
-  # bootstrap:
-  #   recovery:
-  #     source: &previousCluster postgres16-v2
-  #     recoveryTarget:
-  #       targetTime: "2024-08-19 20:30:00.00000+02"
-  # # Note: externalClusters is needed when recovering from an existing cnpg
-  # # cluster
-  # externalClusters:
-  #   - name: *previousCluster
-  #     barmanObjectStore:
-  #       <<: *barmanObjectStore
-  #       serverName: *previousCluster
+    # Note: previousCluster needs to be set to the name of the previous cluster
+    # when recovering from an existing cnpg cluster
+    # bootstrap:
+    #   recovery:
+    #     source: &previousCluster postgres16-v2
+    #     recoveryTarget:
+    #       targetTime: "2024-08-19 20:30:00.00000+02"
+    # # Note: externalClusters is needed when recovering from an existing cnpg
+    # # cluster
+    # externalClusters:
+    #   - name: *previousCluster
+    #     barmanObjectStore:
+    #       <<: *barmanObjectStore
+    #       serverName: *previousCluster
