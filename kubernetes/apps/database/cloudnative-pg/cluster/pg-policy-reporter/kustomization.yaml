@@ -10,5 +10,5 @@ resources:
   - ./secrets/pg-policy-reporter-app.secret.sops.yaml
   - ./secrets/pg-policy-reporter-ro.secret.sops.yaml
   - ./secrets/pg-policy-reporter-owner.sops.yaml
-  - ./secrets/secret.sops.yml
+  - ./secrets/secret.sops.yaml
   - ./pg-policy-reporter.yaml
