@@ -1,0 +1,94 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: pg-policy-reporter
+spec:
+  imageName: ghcr.io/cloudnative-pg/postgresql:18
+  primaryUpdateStrategy: unsupervised
+  primaryUpdateMethod: switchover
+  failoverDelay: 2
+  instances: 3
+
+  enableSuperuserAccess: false
+
+  storage:
+    size: 2Gi
+
+  postgresql:
+    parameters:
+      archive_timeout: 60s
+      idle_in_transaction_session_timeout: "300000" # 5min
+
+  resources:
+    requests:
+      memory: 800Mi
+      cpu: 200m
+    limits:
+      memory: 2Gi
+
+  nodeMaintenanceWindow:
+    inProgress: false
+    reusePVC: true
+
+  plugins:
+  - name: barman-cloud.cloudnative-pg.io
+    isWALArchiver: true
+    parameters:
+      barmanObjectName: backup-pg-policy-reporter
+
+  bootstrap:
+    initdb:
+      database: policy-reporter
+      owner: pg-policy-reporter-owner
+      secret:
+        name: pg-policy-reporter-owner
+      postInitApplicationSQLRefs:
+        configMapRefs:
+          - name: pg-policy-reporter-init
+            key: 01-privileges.sql
+
+managed:
+    roles:
+      - name: pg-policy-reporter-owner
+        ensure: present
+        login: false
+        comment: Non-login owner role for policy-reporter database and schema
+
+      - name: pg-policy-reporter-app
+        ensure: present
+        login: true
+        superuser: false
+        createdb: false
+        createrole: false
+        replication: false
+        bypassrls: false
+        comment: Runtime application user for policy-reporter
+        passwordSecret:
+          name: pg-policy-reporter-app
+
+      - name: pg-policy-reporter-ro
+        ensure: present
+        login: true
+        superuser: false
+        createdb: false
+        createrole: false
+        replication: false
+        bypassrls: false
+        comment: Optional read-only user for policy-reporter
+        passwordSecret:
+          name: pg-policy-reporter-ro
+
+  # Note: previousCluster needs to be set to the name of the previous cluster
+  # when recovering from an existing cnpg cluster
+  # bootstrap:
+  #   recovery:
+  #     source: &previousCluster postgres16-v2
+  #     recoveryTarget:
+  #       targetTime: "2024-08-19 20:30:00.00000+02"
+  # # Note: externalClusters is needed when recovering from an existing cnpg
+  # # cluster
+  # externalClusters:
+  #   - name: *previousCluster
+  #     barmanObjectStore:
+  #       <<: *barmanObjectStore
+  #       serverName: *previousCluster

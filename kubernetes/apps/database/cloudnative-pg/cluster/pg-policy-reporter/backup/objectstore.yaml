@@ -1,0 +1,23 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: backup-pg-policy-reporter
+spec:
+  retentionPolicy: 30d
+  configuration:
+    #serverName: pg-policy-reporter
+    data:
+      compression: bzip2
+    wal:
+      compression: bzip2
+      maxParallel: 8
+    destinationPath: s3://home-ops-test-pg-policy-reporter/
+    endpointURL: https://s3.eu-central-003.backblazeb2.com
+    s3Credentials:
+      accessKeyId:
+        name: pg-policy-reporter-s3-secret
+        key: aws-access-key-id
+      secretAccessKey:
+        name: pg-policy-reporter-s3-secret
+        key: aws-secret-access-key
+

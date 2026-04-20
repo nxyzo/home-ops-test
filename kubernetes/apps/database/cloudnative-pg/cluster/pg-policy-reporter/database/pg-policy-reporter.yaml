@@ -1,0 +1,12 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: policy-reporter
+spec:
+  name: policy-reporter
+  owner: pg-policy-reporter-owner
+  cluster:
+    name: pg-policy-reporter
+  extensions:
+  - name: bloom
+    ensure: present

@@ -1,0 +1,14 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ./backup/backup.yaml
+  - ./backup/objectstore.yaml
+  - ./config/pg-policy-reporter-init.yaml
+  - ./database/pg-policy-reporter.yaml
+  - ./monitoring/podmonitor.yaml
+  - ./secrets/pg-policy-reporter-app.secret.sops.yaml
+  - ./secrets/pg-policy-reporter-ro.secret.sops.yaml
+  - ./secrets/pg-policy-reporter-owner.secret.sops.yaml
+  - ./secrets/secret.sops.yml
+  - ./pg-policy-reporter.yaml
