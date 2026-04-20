@@ -7,8 +7,6 @@ resources:
   #- ./config/pg-policy-reporter-init.yaml
   - ./database/pg-policy-reporter.yaml
   - ./monitoring/podmonitor.yaml
-  - ./secrets/pg-policy-reporter-app.secret.sops.yaml
-  - ./secrets/pg-policy-reporter-ro.secret.sops.yaml
-  - ./secrets/pg-policy-reporter-owner.sops.yaml
+  - ./secrets/pg-policy-reporter.secret.sops.yaml
   - ./secrets/secret.sops.yaml
   - ./pg-policy-reporter.yaml

@@ -9,8 +9,6 @@ spec:
   failoverDelay: 2
   instances: 3
 
-  enableSuperuserAccess: false
-
   storage:
     size: 2Gi
 
@@ -39,32 +37,6 @@ spec:
   bootstrap:
     initdb:
       database: policy-reporter
-      owner: pg-policy-reporter-owner
+      owner: pg-policy-reporter
       secret:
-        name: pg-policy-reporter-owner
-
-  managed:
-    roles:
-      - name: pg-policy-reporter-app
-        ensure: present
-        login: true
-        superuser: false
-        createdb: false
-        createrole: false
-        replication: false
-        bypassrls: false
-        comment: Runtime application user for policy-reporter
-        passwordSecret:
-          name: pg-policy-reporter-app
-
-      - name: pg-policy-reporter-ro
-        ensure: present
-        login: true
-        superuser: false
-        createdb: false
-        createrole: false
-        replication: false
-        bypassrls: false
-        comment: Optional read-only user for policy-reporter
-        passwordSecret:
-          name: pg-policy-reporter-ro
+        name: pg-policy-reporter
