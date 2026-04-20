@@ -5,40 +5,40 @@ metadata:
   namespace: database
 data:
   01-privileges.sql: |
-    REVOKE ALL ON DATABASE policy-reporter FROM PUBLIC;
-    GRANT CONNECT ON DATABASE policy-reporter TO pg-policy-reporter-owner;
-    GRANT CONNECT ON DATABASE policy-reporter TO pg-policy-reporter-app;
-    GRANT CONNECT ON DATABASE policy-reporter TO pg-policy-reporter-ro;
+    REVOKE ALL ON DATABASE "policy-reporter" FROM PUBLIC;
+    GRANT CONNECT ON DATABASE "policy-reporter" TO "pg-policy-reporter-owner";
+    GRANT CONNECT ON DATABASE "policy-reporter" TO "pg-policy-reporter-app";
+    GRANT CONNECT ON DATABASE "policy-reporter" TO "pg-policy-reporter-ro";
 
     REVOKE ALL ON SCHEMA public FROM PUBLIC;
-    GRANT ALL ON SCHEMA public TO pg-policy-reporter-owner;
-    GRANT USAGE ON SCHEMA public TO pg-policy-reporter-app;
-    GRANT USAGE ON SCHEMA public TO pg-policy-reporter-ro;
+    GRANT ALL ON SCHEMA public TO "pg-policy-reporter-owner";
+    GRANT USAGE ON SCHEMA public TO "pg-policy-reporter-app";
+    GRANT USAGE ON SCHEMA public TO "pg-policy-reporter-ro";
 
     GRANT SELECT, INSERT, UPDATE, DELETE
     ON ALL TABLES IN SCHEMA public
-    TO pg-policy-reporter-app;
+    TO "pg-policy-reporter-app";
 
     GRANT USAGE, SELECT, UPDATE
     ON ALL SEQUENCES IN SCHEMA public
-    TO pg-policy-reporter-app;
+    TO "pg-policy-reporter-app";
 
     GRANT SELECT
     ON ALL TABLES IN SCHEMA public
-    TO pg-policy-reporter-ro;
+    TO "pg-policy-reporter-ro";
 
     GRANT USAGE, SELECT
     ON ALL SEQUENCES IN SCHEMA public
-    TO pg-policy-reporter-ro;
+    TO "pg-policy-reporter-ro";
 
-    ALTER DEFAULT PRIVILEGES FOR ROLE pg-policy-reporter-owner IN SCHEMA public
-      GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO pg-policy-reporter-app;
+    ALTER DEFAULT PRIVILEGES FOR ROLE "pg-policy-reporter-owner" IN SCHEMA public
+      GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "pg-policy-reporter-app";
 
-    ALTER DEFAULT PRIVILEGES FOR ROLE pg-policy-reporter-owner IN SCHEMA public
-      GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO pg-policy-reporter-app;
+    ALTER DEFAULT PRIVILEGES FOR ROLE "pg-policy-reporter-owner" IN SCHEMA public
+      GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO "pg-policy-reporter-app";
 
-    ALTER DEFAULT PRIVILEGES FOR ROLE pg-policy-reporter-owner IN SCHEMA public
-      GRANT SELECT ON TABLES TO pg-policy-reporter-ro;
+    ALTER DEFAULT PRIVILEGES FOR ROLE "pg-policy-reporter-owner" IN SCHEMA public
+      GRANT SELECT ON TABLES TO "pg-policy-reporter-ro";
 
-    ALTER DEFAULT PRIVILEGES FOR ROLE pg-policy-reporter-owner IN SCHEMA public
-      GRANT USAGE, SELECT ON SEQUENCES TO pg-policy-reporter-ro;
+    ALTER DEFAULT PRIVILEGES FOR ROLE "pg-policy-reporter-owner" IN SCHEMA public
+      GRANT USAGE, SELECT ON SEQUENCES TO "pg-policy-reporter-ro";
