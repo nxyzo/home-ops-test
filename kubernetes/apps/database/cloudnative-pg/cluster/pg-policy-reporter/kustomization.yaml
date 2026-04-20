@@ -9,6 +9,6 @@ resources:
   - ./monitoring/podmonitor.yaml
   - ./secrets/pg-policy-reporter-app.secret.sops.yaml
   - ./secrets/pg-policy-reporter-ro.secret.sops.yaml
-  - ./secrets/pg-policy-reporter-owner.secret.sops.yaml
+  - ./secrets/pg-policy-reporter-owner.sops.yaml
   - ./secrets/secret.sops.yml
   - ./pg-policy-reporter.yaml
