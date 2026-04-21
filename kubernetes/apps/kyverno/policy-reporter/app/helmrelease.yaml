@@ -92,7 +92,8 @@ spec:
     httproute:
       enabled: true
       parentRefs:
-      hostnames: policy-reporter.home-ops.dev.nxyzo.com
+      hostnames:
+        - policy-reporter.home-ops.dev.nxyzo.com
       rules:
         - matches:
             - path:
