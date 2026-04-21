@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - ./backup/backup.yaml
   - ./backup/objectstore.yaml
-  - ./database/pg-policy-reporter.yaml
+  #- ./database/pg-policy-reporter.yaml
   - ./monitoring/podmonitor.yaml
   - ./secrets/pg-policy-reporter.secret.sops.yaml
   - ./secrets/secret.sops.yaml
