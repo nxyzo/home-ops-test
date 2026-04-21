@@ -92,6 +92,8 @@ spec:
     httproute:
       enabled: true
       parentRefs:
+         - name: envoy-internal
+           namespace: network
       hostnames:
         - policy-reporter.home-ops.dev.nxyzo.com
       rules:
