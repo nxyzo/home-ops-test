@@ -65,10 +65,10 @@ spec:
       retryPeriod: 2
 
     database:
-      type: "postgres"
-      database: "policy-reporter"
-      username: pg-policy-reporter"
-      host: "pg-policy-reporter-rw.database.svc.cluster.local"
+      type: postgres
+      database: policy-reporter
+      username: pg-policy-reporter
+      host: pg-policy-reporter-rw.database.svc.cluster.local
       enableSSL: false
       maxOpenConnections: 25
       maxIdleConnections: 25
@@ -76,7 +76,7 @@ spec:
       connectionMaxIdleTime: 0
       timeout: 10
       metrics: true
-      secretRef: "pg-policy-reporter-db-credentials"
+      secretRef: pg-policy-reporter-db-credentials
 
     periodicSync:
       enabled: true
@@ -101,6 +101,9 @@ spec:
             - path:
                 type: PathPrefix
                 value: /
+        - backendRefs:
+            - name: policy-reporter-ui
+              port: 8080
     ui:
       enabled: true
       displayMode: dark
