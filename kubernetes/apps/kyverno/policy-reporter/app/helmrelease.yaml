@@ -58,29 +58,29 @@ spec:
       #   filter: {}
       #   # -- List of channels to route results to different configurations
       #   channels: []
-      leaderElection:
-        releaseOnCancel: true
-        leaseDuration: 15
-        renewDeadline: 10
-        retryPeriod: 2
+    leaderElection:
+      releaseOnCancel: true
+      leaseDuration: 15
+      renewDeadline: 10
+      retryPeriod: 2
 
-      database:
-        type: "postgres"
-        database: "policy-reporter"
-        username: pg-policy-reporter"
-        host: "pg-policy-reporter-rw.database.svc.cluster.local"
-        enableSSL: false
-        maxOpenConnections: 25
-        maxIdleConnections: 25
-        connectionMaxLifetime: 0
-        connectionMaxIdleTime: 0
-        timeout: 10
-        metrics: true
-        secretRef: "pg-policy-reporter"
+    database:
+      type: "postgres"
+      database: "policy-reporter"
+      username: pg-policy-reporter"
+      host: "pg-policy-reporter-rw.database.svc.cluster.local"
+      enableSSL: false
+      maxOpenConnections: 25
+      maxIdleConnections: 25
+      connectionMaxLifetime: 0
+      connectionMaxIdleTime: 0
+      timeout: 10
+      metrics: true
+      secretRef: "pg-policy-reporter"
 
-      periodicSync:
-        enabled: true
-        interval: 30
+    periodicSync:
+      enabled: true
+      interval: 30
 
     grafanaDashboard:
       enabled: true
