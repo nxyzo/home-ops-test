@@ -76,7 +76,7 @@ spec:
       connectionMaxIdleTime: 0
       timeout: 10
       metrics: true
-      secretRef: "pg-policy-reporter"
+      secretRef: "pg-policy-reporter-db-credentials"
 
     periodicSync:
       enabled: true
