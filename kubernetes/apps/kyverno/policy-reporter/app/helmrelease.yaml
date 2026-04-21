@@ -1,0 +1,116 @@
+---
+# yaml-language-server: $schema=https://lds-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app policy-reporter
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: *app
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  values:
+    podSecurityContext:
+      fsGroup: 1234
+    securityContext:
+      runAsUser: 1234
+      runAsNonRoot: true
+      privileged: false
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+          - ALL
+      seccompProfile:
+        type: RuntimeDefault
+
+      # alertManager:
+      #   host: ""
+      #   # -- Server Certificate file path
+      #   # Can be added under extraVolumes
+      #   certificate: ""
+      #   # -- Skip TLS verification
+      #   skipTLS: false
+      #   # -- Additional HTTP Headers
+      #   headers: {}
+      #   # -- Read configuration from an already existing Secret
+      #   secretRef: ""
+      #   # -- Mounted secret path by Secrets Controller, secret should be in json format
+      #   mountedSecret: ""
+      #   # -- Minimum severity: "" < info < low < medium < high < critical
+      #   minimumSeverity: ""
+      #   # -- List of sources which should send
+      #   sources: []
+      #   # -- Skip already existing PolicyReportResults on startup
+      #   skipExistingOnStartup: true
+      #   # -- Added as additional labels
+      #   customFields: {}
+      #   # -- Filter Results which should send to this target
+      #   # Wildcars for namespaces and policies are supported, you can either define exclude or include values
+      #   # Filters are available for all targets except the UI
+      #   filter: {}
+      #   # -- List of channels to route results to different configurations
+      #   channels: []
+      leaderElection:
+        releaseOnCancel: true
+        leaseDuration: 15
+        renewDeadline: 10
+        retryPeriod: 2
+
+      database:
+        type: "postgres"
+        database: "policy-reporter"
+        username: pg-policy-reporter"
+        host: "pg-policy-reporter-rw.database.svc.cluster.local"
+        enableSSL: false
+        maxOpenConnections: 25
+        maxIdleConnections: 25
+        connectionMaxLifetime: 0
+        connectionMaxIdleTime: 0
+        timeout: 10
+        metrics: true
+        secretRef: "pg-policy-reporter"
+
+      periodicSync:
+        enabled: true
+        interval: 30
+
+    grafanaDashboard:
+      enabled: true
+      folder: kyverno
+      allowCrossNamespaceImport: true
+      matchLabels:
+        dashboards: "grafana"
+
+    httproute:
+      enabled: true
+      parentRefs:
+      hostnames: policy-reporter.home-ops.dev.nxyzo.com
+      rules:
+        - matches:
+            - path:
+                type: PathPrefix
+                value: /
+    ui:
+      enabled: true
+      displayMode: dark
+      image:
+        registry: ghcr.io
+        repository: kyverno/policy-reporter-ui
+        pullPolicy: IfNotPresent
+        tag: "2.5.1"
+    plugin:
+      kyverno:
+        enabled: true
+        image:
+          registry: ghcr.io
+          repository: kyverno/policy-reporter/kyverno-plugin
+          pullPolicy: IfNotPresent
+          tag: "0.6.0"
