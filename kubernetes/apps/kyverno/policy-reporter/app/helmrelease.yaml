@@ -90,20 +90,20 @@ spec:
         dashboards: "grafana"
 
     httproute:
-      enabled: true
-      parentRefs:
-         - name: envoy-internal
-           namespace: network
-      hostnames:
-        - policy-reporter.home-ops.dev.nxyzo.com
-      rules:
-        - matches:
-            - path:
-                type: PathPrefix
-                value: /
-        - backendRefs:
-            - name: policy-reporter-ui
-              port: 8080
+      enabled: false
+    #   parentRefs:
+    #      - name: envoy-internal
+    #        namespace: network
+    #   hostnames:
+    #     - policy-reporter.home-ops.dev.nxyzo.com
+    #   rules:
+    #     - matches:
+    #         - path:
+    #             type: PathPrefix
+    #             value: /
+    #     - backendRefs:
+    #         - name: policy-reporter-ui
+    #           port: 8080
     ui:
       enabled: true
       displayMode: dark
