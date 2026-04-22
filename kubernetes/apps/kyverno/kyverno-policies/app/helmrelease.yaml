@@ -21,7 +21,7 @@ spec:
     policyType: ValidatingPolicy
     podSecurityStandard: baseline
     podSecuritySeverity: medium
-    validationFailureAction: Enforce
+    #validationFailureAction: Enforce
     validationAllowExistingViolations: true
 
     validationFailureActionOverrides:
