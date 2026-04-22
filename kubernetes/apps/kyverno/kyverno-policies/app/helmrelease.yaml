@@ -22,7 +22,7 @@ spec:
     podSecurityStandard: baseline
     podSecuritySeverity: medium
     validationFailureAction: Enforce
-    #validationAllowExistingViolations: true
+    validationAllowExistingViolations: true
 
     validationFailureActionOverrides:
       all:
