@@ -21,7 +21,7 @@ spec:
     policyType: ValidatingPolicy
     podSecurityStandard: baseline
     podSecuritySeverity: medium
-    #validationFailureAction: Enforce
+    validationFailureAction: Enforce
     #validationAllowExistingViolations: true
 
     validationFailureActionOverrides:
@@ -41,6 +41,3 @@ spec:
             - kyverno
             - observability
             - system-upgrade
-        - action: Enforce
-          namespaces:
-            - default
