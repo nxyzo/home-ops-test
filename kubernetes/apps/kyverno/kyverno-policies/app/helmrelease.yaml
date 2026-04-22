@@ -18,7 +18,7 @@ spec:
       retries: 3
   values:
     policyKind: ClusterPolicy
-    policyType: ValidatingPolicy
+    policyType: ClusterPolicy
     podSecurityStandard: baseline
     podSecuritySeverity: medium
     validationFailureAction: Enforce
