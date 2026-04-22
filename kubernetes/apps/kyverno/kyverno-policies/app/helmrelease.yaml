@@ -21,10 +21,9 @@ spec:
     policyType: ValidatingPolicy
     podSecurityStandard: baseline
     podSecuritySeverity: medium
-    # default for all namespaces that are not explicitly listed in validationFailureActionOverrides
     validationFailureAction: Audit
+    validationAllowExistingViolations: true
 
-    # audit these namespaces
     validationFailureActionOverrides:
       all:
         - action: Audit
@@ -42,3 +41,6 @@ spec:
             - kyverno
             - observability
             - system-upgrade
+        - action: Enforce
+          namespaces:
+            - default
