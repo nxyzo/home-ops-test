@@ -17,12 +17,12 @@ spec:
     remediation:
       retries: 3
   values:
-    policyKind: Policy
+    policyKind: ClusterPolicy
     policyType: ValidatingPolicy
     podSecurityStandard: baseline
     podSecuritySeverity: medium
     #validationFailureAction: Enforce
-    validationAllowExistingViolations: true
+    #validationAllowExistingViolations: true
 
     validationFailureActionOverrides:
       all:
