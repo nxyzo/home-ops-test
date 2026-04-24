@@ -1,5 +1,5 @@
 apiVersion: policies.kyverno.io/v1
-kind: NamespacesValidatingPolicy
+kind: NamespacedValidatingPolicy
 metadata:
   name: default-disallow-privilege-escalation
   namespace: default
