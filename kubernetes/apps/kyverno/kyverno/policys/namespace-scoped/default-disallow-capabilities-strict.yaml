@@ -2,6 +2,7 @@ apiVersion: policies.kyverno.io/v1
 kind: NamespacedValidatingPolicy
 metadata:
   name: default-disallow-capabilities-strict
+  namespace: default
   annotations:
     policies.kyverno.io/title: Disallow Capabilities (Strict) in ValidatingPolicy
     policies.kyverno.io/category: Pod Security Standards (Restricted) in ValidatingPolicy

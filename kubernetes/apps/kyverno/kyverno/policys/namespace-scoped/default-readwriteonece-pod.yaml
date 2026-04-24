@@ -2,6 +2,7 @@ apiVersion: policies.kyverno.io/v1
 kind: NamespacedValidatingPolicy
 metadata:
   name: readwriteonce-pod
+  namespace: default
   annotations:
     policies.kyverno.io/title: Enforce ReadWriteOncePod in ValidatingPolicy
     policies.kyverno.io/category: Sample in Vpol
