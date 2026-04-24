@@ -13,3 +13,5 @@ resources:
   - ./NamespacedValidatingPolicy/default-require-container-port-names.yaml
   - ./NamespacedValidatingPolicy/default-require-run-as-non-root-user.yaml
   - ./NamespacedValidatingPolicy/default-validate-probes.yaml
+  - ./NamespacedDeletingPolicy/default-clean-bare-pods.yaml
+  - ./NamespacedDeletingPolicy/default-cleanup-empty-replicasets.yaml
