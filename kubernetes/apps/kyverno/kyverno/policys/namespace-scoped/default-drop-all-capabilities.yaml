@@ -1,5 +1,5 @@
 apiVersion: kyverno.io/v1
-kind: Policy
+kind: NamespacedValidatingPolicy
 metadata:
   name: default-drop-all-capabilities
   namespace: default
