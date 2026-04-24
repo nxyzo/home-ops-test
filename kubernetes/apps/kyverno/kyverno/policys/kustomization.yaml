@@ -5,7 +5,7 @@ resources:
   - ./NamespacedValidatingPolicy/default-deployment-has-multiple-replicas.yaml
   - ./NamespacedValidatingPolicy/default-disallow-capabilities-strict.yaml
   - ./NamespacedValidatingPolicy/default-disallow-privilege-escalation.yaml
-  - ./NamespacedValidatingPolicy/default-enforce-resource-limits.yaml
+  - ./NamespacedValidatingPolicy/default-enforce-memory-limits.yaml
   - ./NamespacedValidatingPolicy/default-ensure-readonly-hostpath.yaml
   - ./NamespacedValidatingPolicy/default-forbid-cpu-limits.yaml
   - ./NamespacedValidatingPolicy/default-pdb-maxunavailable.yaml
