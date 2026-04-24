@@ -2,7 +2,7 @@ apiVersion: policies.kyverno.io/v1
 kind: NamespacedValidatingPolicy
 metadata:
   name: default-ensure-readonly-hostpath
-  namepsace: default
+  namespace: default
   annotations:
     policies.kyverno.io/title: Ensure Read Only hostPath in ValidatingPolicy
     policies.kyverno.io/category: Other in Vpol
