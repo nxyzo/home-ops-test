@@ -2,6 +2,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- ./namespace-scoped/default-disallow-capabilities-strict.yaml
-- ./namespace-scoped/default-forbid-cpu-limits.yaml
-- ./namespace-scoped/default-enforce-resource-limits.yaml
+  - ./NamespacedValidatingPolicy/default-deployment-has-multiple-replicas.yaml
+  - ./NamespacedValidatingPolicy/default-disallow-capabilities-strict.yaml
+  - ./NamespacedValidatingPolicy/default-disallow-privilege-escalation.yaml
+  - ./NamespacedValidatingPolicy/default-enforce-resource-limits.yaml
+  - ./NamespacedValidatingPolicy/default-ensure-readonly-hostpath.yaml
+  - ./NamespacedValidatingPolicy/default-forbid-cpu-limits.yaml
+  - ./NamespacedValidatingPolicy/default-pdb-maxunavailable.yaml
+  - ./NamespacedValidatingPolicy/default-readwriteonece-pod.yaml
+  - ./NamespacedValidatingPolicy/default-require-container-port-names.yaml
+  - ./NamespacedValidatingPolicy/default-require-run-as-non-root-user.yaml
+  - ./NamespacedValidatingPolicy/default-validate-probes.yaml
