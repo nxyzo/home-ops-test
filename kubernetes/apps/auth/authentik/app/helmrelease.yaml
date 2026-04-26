@@ -31,7 +31,7 @@ spec:
 
     authentik:
       existingSecret:
-        secretName: "auhtentik-secret"
+        secretName: "authentik-secret"
       postgresql:
         host: pg-authentik-rw.database.svc.cluster.local
         name: authentik
