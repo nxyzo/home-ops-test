@@ -4,6 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: &app authentik
+  namespace: auth
 spec:
   interval: 1h
   chartRef:
@@ -30,14 +31,23 @@ spec:
         fsGroup: 1000
 
     authentik:
-      existingSecret:
-        secretName: "authentik-secret"
+      secret_key: file:///authentik-secret/secret_key
       postgresql:
         host: pg-authentik-rw.database.svc.cluster.local
         name: authentik
         user: file:///postgres-creds/username
         password: file:///postgres-creds/password
         port: 5432
+
+      # email:
+      #   host: ""
+      #   port: 587
+      #   username: ""
+      #   password: ""
+      #   use_tls: false
+      #   use_ssl: false
+      #   timeout: 30
+      #   from: ""
 
     server:
       enabled: true
@@ -47,10 +57,16 @@ spec:
         - name: postgres-creds
           secret:
             secretName: pg-authentik
+        - name: authentik-secret
+          secret:
+            secretName: authentik-secret
 
       volumeMounts:
         - name: postgres-creds
           mountPath: /postgres-creds
+          readOnly: true
+        - name: authentik-secret
+          mountPath: /authentik-secret
           readOnly: true
 
       securityContext:
@@ -136,10 +152,16 @@ spec:
         - name: postgres-creds
           secret:
             secretName: pg-authentik
+        - name: authentik-secret
+          secret:
+            secretName: authentik-secret
 
       volumeMounts:
         - name: postgres-creds
           mountPath: /postgres-creds
+          readOnly: true
+        - name: authentik-secret
+          mountPath: /authentik-secret
           readOnly: true
 
       securityContext:
