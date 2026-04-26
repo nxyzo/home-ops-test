@@ -30,6 +30,8 @@ spec:
         fsGroup: 1000
 
     authentik:
+      existingSecret:
+        secretName: "auhtentik-secret"
       postgresql:
         host: pg-authentik-rw.database.svc.cluster.local
         name: authentik
