@@ -12,4 +12,4 @@ spec:
   values:
     crds:
       create: true
-    replicaCount: 3
+    replicaCount: 1
