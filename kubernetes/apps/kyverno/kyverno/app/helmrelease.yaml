@@ -65,6 +65,18 @@ spec:
       replicas: 3
       serviceMonitor:
         enabled: true
+      rbac:
+        clusterRole:
+          extraResources:
+            - apiGroups:
+                - apps
+              resources:
+                - replicasets
+              verbs:
+                - get
+                - list
+                - watch
+                - delete
     reportsController:
       replicas: 3
       serviceMonitor:
