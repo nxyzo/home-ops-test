@@ -31,7 +31,6 @@ spec:
         fsGroup: 1000
 
     authentik:
-      secret_key: file:///authentik-secret/secret_key
       postgresql:
         host: pg-authentik-rw.database.svc.cluster.local
         name: authentik
@@ -39,34 +38,25 @@ spec:
         password: file:///postgres-creds/password
         port: 5432
 
-      # email:
-      #   host: ""
-      #   port: 587
-      #   username: ""
-      #   password: ""
-      #   use_tls: false
-      #   use_ssl: false
-      #   timeout: 30
-      #   from: ""
-
     server:
       enabled: true
       replicas: 2
+
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secret
+              key: secret_key
 
       volumes:
         - name: postgres-creds
           secret:
             secretName: pg-authentik
-        - name: authentik-secret
-          secret:
-            secretName: authentik-secret
 
       volumeMounts:
         - name: postgres-creds
           mountPath: /postgres-creds
-          readOnly: true
-        - name: authentik-secret
-          mountPath: /authentik-secret
           readOnly: true
 
       securityContext:
@@ -148,20 +138,21 @@ spec:
       enabled: true
       replicas: 2
 
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secret
+              key: secret_key
+
       volumes:
         - name: postgres-creds
           secret:
             secretName: pg-authentik
-        - name: authentik-secret
-          secret:
-            secretName: authentik-secret
 
       volumeMounts:
         - name: postgres-creds
           mountPath: /postgres-creds
-          readOnly: true
-        - name: authentik-secret
-          mountPath: /authentik-secret
           readOnly: true
 
       securityContext:
