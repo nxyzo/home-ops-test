@@ -1,0 +1,42 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: pg-authentik
+spec:
+  imageName: ghcr.io/cloudnative-pg/postgresql:18
+  primaryUpdateStrategy: unsupervised
+  primaryUpdateMethod: switchover
+  failoverDelay: 2
+  instances: 3
+
+  storage:
+    size: 2Gi
+
+  postgresql:
+    parameters:
+      archive_timeout: 60s
+      idle_in_transaction_session_timeout: "300000" # 5min
+
+  resources:
+    requests:
+      memory: 800Mi
+      cpu: 200m
+    limits:
+      memory: 2Gi
+
+  nodeMaintenanceWindow:
+    inProgress: false
+    reusePVC: true
+
+  plugins:
+    - name: barman-cloud.cloudnative-pg.io
+      isWALArchiver: true
+      parameters:
+        barmanObjectName: backup-pg-authentik
+
+  bootstrap:
+    initdb:
+      database: authentik
+      owner: pg-authentik
+      secret:
+        name: pg-authentik
