@@ -103,4 +103,4 @@ spec:
           registry: ghcr.io
           repository: kyverno/policy-reporter/kyverno-plugin
           pullPolicy: IfNotPresent
-          tag: "0.6.0"
+          tag: "0.6.1"
