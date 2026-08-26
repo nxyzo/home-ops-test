@@ -95,7 +95,7 @@ spec:
         registry: ghcr.io
         repository: kyverno/policy-reporter-ui
         pullPolicy: IfNotPresent
-        tag: "2.5.4"
+        tag: "2.8.1"
     plugin:
       kyverno:
         enabled: true
