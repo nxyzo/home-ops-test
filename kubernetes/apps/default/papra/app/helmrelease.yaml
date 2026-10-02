@@ -17,7 +17,7 @@ spec:
           app:
             image:
               repository: ghcr.io/papra-hq/papra
-              tag: 26.5.0-rootless@sha256:9b602b27c122f15160b472fa73c1496ef7fa0f18e3375a8cc9a57bbce68e7ab7
+              tag: 26.7.0-rootless@sha256:a91ebe7559dfef8dd1ac1bbab19807d61d3e4319758b046d2abb1aa5ff85577a
             env:
               - name: PORT
                 value: &port 1221
